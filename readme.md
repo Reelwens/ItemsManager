@@ -7,9 +7,9 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Boots
 
 ### Installation
 
-1) Importer la base de donnée SQL `install\gestionnaire.sql` via phpmyadmin
-2) Modifier le nom d'utilisateur et le mot de passe dans le fichier `src\includes\handle_form.php`
-3) Executer le projet sur un serveur
+- Importer la base de donnée SQL `install\gestionnaire.sql` via phpmyadmin
+- Modifier le nom d'utilisateur et le mot de passe dans le fichier `src\includes\handle_form.php`
+- Executer le projet sur un serveur
 
 ### Fonctionnalités
 
