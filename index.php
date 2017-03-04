@@ -25,7 +25,7 @@ $items = $query->fetchAll();
     <body>
         <div class="container">
 
-            <header id="header" class="row">
+            <header id="header" class="row"> <!-- HEADER -->
                 <div class="col-md-12 text-center">
                     <img src="src/img/minecraft_logo.png" alt="Logo Minecraft" width="700px" />
 
@@ -38,7 +38,7 @@ $items = $query->fetchAll();
                 </div>
             </header>
 
-            <section id="blocList" class="row">
+            <section id="blocList" class="row"> <!-- BLOC LIST -->
 
                 <?php foreach($items as $_item): ?>
                 <div class="col-lg-3 col-md-4 col-sm-6 blocCase">
@@ -64,7 +64,7 @@ $items = $query->fetchAll();
 
 
             </section>
-            <section id="addBlockForm" class="row">
+            <section id="addBlockForm" class="row"> <!-- BLOC FORM -->
 
                 <div class="col-lg-8 col-lg-offset-2 formCase">
                     <div class="border">
@@ -131,7 +131,7 @@ $items = $query->fetchAll();
 
             </section>
 
-            <footer class="text-center">
+            <footer class="text-center"> <!-- FOOTER -->
                 <p>Made with <span id="hearth">&hearts;</span> by Simon.L</p>
             </footer>
         </div>
