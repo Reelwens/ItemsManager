@@ -52,8 +52,8 @@ if(!empty($_POST)) {
         // Value empty
         if (empty($mcId))
             $error_messages['mcId'] = 'Donnée manquante';
-        else if (!is_int($mcId))
         // Is not a number
+        else if (!is_int($mcId))
             $error_messages['mcId'] = 'Renseignez un nombre';
         // Number too long
         else if (strlen($mcId) > 3)
@@ -113,7 +113,7 @@ if(!empty($_POST)) {
         if(empty($error_messages)) {
             // Save image in a specific folder
             move_uploaded_file($_FILES['textureImg']['tmp_name'],'src/img/uploaded/' . $textureImg);
-            
+
             // Prepare the SQL request
             $prepare = $pdo->prepare('INSERT INTO items (title, mcId, textureImg, category, description) VALUES (:title, :mcId, :textureImg, :category, :description)');
 
