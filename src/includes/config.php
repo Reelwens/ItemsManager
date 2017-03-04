@@ -4,11 +4,10 @@
 define('DB_HOST','localhost');
 define('DB_NAME','gestionnaire');
 define('DB_USER','root');
-define('DB_PASS',''); // '' par défaut sur windows
+define('DB_PASS','');
 
 
-try
-{
+try {
     $options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8'
     );
@@ -19,8 +18,7 @@ try
     // Set fetch mode to object
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
 }
-catch (Exception $e)
-{
+catch (Exception $e) {
     // Failed to connect
     die('Could not connect');
 }
