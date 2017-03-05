@@ -7,6 +7,13 @@ include 'src/includes/handle_form.php';
 $query = $pdo->query('SELECT * FROM `items` ORDER BY `items`.`mcId` ASC');
 $items = $query->fetchAll();
 
+// Make a json format
+$json_items = json_encode($items);
+
+/*echo '<pre>';
+print_r($items);
+echo '</pre>';*/
+
 ?>
 
 
