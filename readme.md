@@ -5,13 +5,16 @@ Minecraft items manager est un site internet permettant à ses utilisateurs de g
 
 Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Bootstrap.
 
-### Installation
+## Installation
 
 - Importer la base de donnée SQL `install\gestionnaire.sql` via phpmyadmin
 - Modifier le nom d'utilisateur et le mot de passe dans le fichier `src\includes\handle_form.php`
 - Executer le projet sur un serveur
 
-### Fonctionnalités
+## Remarques
+* Des images sont mises à disposition dans `install\item_for_try\` afin de tester rapidement les contrôles réalisés
+
+## Fonctionnalités
 
 ##### Fonctionnalités de base :
 * Connexion sécurisée à la base de donnée
@@ -23,7 +26,8 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Boots
 ##### Fonctionnalités avancées :
 * Site entierement responsive, peu importe le nombre d'items
 * Formatage en français de la date renvoyée par la base de donnée
-* Suppression des items de la base de donnée depuis le site internet
+* Connexion session administrateur avec droits supplémentaires
+* Suppression des items de la base de donnée depuis le site internet (en tant qu'administrateur)
 * Mise en sécurisée d'images sur le serveur (apparence de l'item Minecraft) :
     * Vérification de la taille (15 Ko)
     * Vérification de l'extension
@@ -40,6 +44,3 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Boots
 * Ré-affichage des données du formulaire en cas d'erreur
 * Affichage des items dans l'ordre numérique des ID Minecraft
 * Style CSS reprenant les codes graphiques du jeu Minecraft
-
-### Remarques
-* Des images sont mises à disposition dans `install\item_for_try\` afin de tester rapidement les contrôles réalisés
