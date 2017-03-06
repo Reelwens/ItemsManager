@@ -34,11 +34,13 @@ echo '</pre>';*/
         <header class="header"> <!-- HEADER -->
             <div class="container">
                 <div class="loginBar text-right">
+                    <div id="errorTestLogin"><p><?= array_key_exists('login', $error_login) ? $error_login['login'] : '' ?></p></div>
                     <form action="#" method="post">
                         <input type="hidden" name="type" value="login">
                         <label for="pseudoInput">Administrer la page :</label>
-                        <input type="text" name="pseudo" id="pseudoInput" placeholder="Pseudonyme">
-                        <input type="password" name="password" placeholder="Mot de passe">
+                        <input type="text" name="pseudo" id="pseudoInput" placeholder="Pseudonyme" value="<?= $_POST['pseudo'] ?>" required>
+                        <input type="password" name="pass" placeholder="Mot de passe" required>
+                        <input type="submit" value="Valider">
                     </form>
                 </div>
             </div>
@@ -99,28 +101,28 @@ echo '</pre>';*/
                                     <label for="nameItemInput">— Nom de l'item —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('title', $error_messages) ? $error_messages['title'] : '' ?></p></div>
                                     <img src="src/img/error.svg" alt="error" width="20px" />
-                                    <input type="text" name="title" id="nameItemInput" placeholder="Grass" value="<?= $_POST['title'] ?>">
+                                    <input type="text" name="title" id="nameItemInput" placeholder="Grass" value="<?= $_POST['title'] ?>" required>
                                 </div>
 
                                 <div class="numberId <?= array_key_exists('mcId', $error_messages) ? 'error' : '' ?>">
                                     <label for="numberIdInput">— ID —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('mcId', $error_messages) ? $error_messages['mcId'] : '' ?></p></div>
                                     <img src="src/img/error.svg" alt="error" width="20px" />
-                                    <input type="number" name="mcId" id="numberIdInput" placeholder="2" value="<?= $_POST['mcId'] ?>">
+                                    <input type="number" name="mcId" id="numberIdInput" placeholder="2" value="<?= $_POST['mcId'] ?>" required>
                                 </div>
 
                                 <div class="picture <?= array_key_exists('textureImg', $error_messages) ? 'error' : '' ?>">
                                     <label for="uploadPicture">— Aperçu de l'item —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('textureImg', $error_messages) ? $error_messages['textureImg'] : '' ?></p></div>
                                     <img src="src/img/error.svg" alt="error" width="20px" />
-                                    <input type="file" name="textureImg" id="uploadPicture">
+                                    <input type="file" name="textureImg" id="uploadPicture" required>
                                 </div>
 
                                 <div class="nameCategory <?= array_key_exists('category', $error_messages) ? 'error' : '' ?>">
                                     <label for="nameCategoryInput">— Catégorie —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('category', $error_messages) ? $error_messages['category'] : '' ?></p></div>
                                     <img src="src/img/error.svg" alt="error" width="20px" />
-                                    <input list="itemList" autocomplete="off" type="text" name="category" id="nameCategoryInput" placeholder="Bloc" value="<?= $_POST['category'] ?>">
+                                    <input list="itemList" autocomplete="off" type="text" name="category" id="nameCategoryInput" placeholder="Bloc" value="<?= $_POST['category'] ?>" required>
                                     <datalist id="itemList">
                                         <option value="Blocs"></option>
                                         <option value="Décoratifs"></option>

@@ -7,6 +7,8 @@ echo '</pre>';*/
 
 // Set variables
 $error_messages = array();
+$error_login = array();
+$admin = 0;
 
 // Reset the post values
 function resetPost() {
@@ -14,6 +16,7 @@ function resetPost() {
     $_POST['mcId'] = '';
     $_POST['category'] = '';
     $_POST['description'] = '';
+    $_POST['pseudo'] = '';
 }
 
 // Instructions when post request
@@ -21,6 +24,8 @@ if(!empty($_POST)) {
 
     // If the user use the 'add' post form
     if($_POST['type'] == 'add') {
+        // Catch error
+        $_POST['pseudo'] = '';
 
         // Create variables for each post values
         $title = ($_POST['title']);
@@ -132,9 +137,40 @@ if(!empty($_POST)) {
 
     // If the user use the 'delete' post form
     else if($_POST['type'] == 'delete') {
-        $exec = $pdo->exec('DELETE FROM `items` WHERE `items`.`id` =' . $_POST['id']);
+        if ($admin == 1) {
+            $exec = $pdo->exec('DELETE FROM `items` WHERE `items`.`id` =' . $_POST['id']);
+            resetPost();
+        }
+    }
 
-        resetPost();
+    // If the user use the 'login' post form
+    else if($_POST['type'] == 'login') {
+        
+        // Create variables for each post values
+        $pseudo = $_POST['pseudo'];
+        $pass = sha1($_POST['pass']);
+
+        if(empty($error_login)) {
+            // Verifiy if user/pass is in BDD
+            $query = $pdo->query('SELECT * FROM members');
+            $users = $query->fetchAll();
+
+            // If the pseudo or password is incorrect
+            if ($pseudo != $users[0]->pseudo) {
+                $error_login['login'] = 'Pseudonyme incorrect';
+            }
+
+            else if ($pass != $users[0]->pass) {
+                $error_login['login'] = 'Mot de passe incorrect';
+            }
+
+            else { // ToDo : Modify html content
+                $admin = 1;
+            }
+            if(empty($error_login)) {
+                resetPost();
+            }
+        }
     }
 }
 
@@ -144,6 +180,6 @@ else {
 }
 
 
-/*echo '<pre>';
-print_r($error_messages);
-echo '</pre>';*/
+echo '<pre>';
+print_r($admin);
+echo '</pre>';
