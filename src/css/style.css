@@ -15,10 +15,13 @@ header {
     border-bottom: 1px solid #3c3c3c;
     transform: translateY(-49px);
     transition: transform, 0.5s ease-in-out;
+    visibility: hidden;
+    will-change: transform;
 }
 
 .header.toggle {
     transform: translateY(0px);
+    visibility: visible;
 }
 
 header label {
@@ -37,6 +40,17 @@ header input {
     transition: transform, 0.5s ease-in-out;
     background-color: #292929;
     padding: 8px;
+    border-radius: 2px;
+    will-change: transform;
+}
+
+.container {
+    transition: transform, 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.container.toggle {
+    transform: translateY(49px);
 }
 
 .toggleButton.toggle {
@@ -46,7 +60,6 @@ header input {
 /* TITLE SEARCH */
 
 #titleSearch {
-    margin-top: 30px;
     margin-bottom: 30px;
 }
 

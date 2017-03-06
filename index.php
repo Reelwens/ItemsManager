@@ -46,7 +46,7 @@ echo '</pre>';*/
         
         <div class="toggleButton"><img src="src/img/hamburger.svg" alt="menu" width="30px" /></div>
 
-        <div class="container">
+        <div class="container main">
 
             <section id="titleSearch" class="row"> <!-- TITLE SEARCH -->
                 <div class="col-md-12 text-center">
