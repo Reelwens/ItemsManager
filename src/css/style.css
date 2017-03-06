@@ -1,25 +1,61 @@
 /* GENERAL */
 
-body
-{
+body {
     background-image: url(../img/options_background.png);
     background-repeat: repeat;
     font-family: 'Quantico', sans-serif;
+    position: relative;
 }
 
 /* HEADER */
 
-#header {
+header {
+    background-color: #292929;
+    padding: 10px 0;
+    border-bottom: 1px solid #3c3c3c;
+    transform: translateY(-49px);
+    transition: transform, 0.5s ease-in-out;
+}
+
+.header.toggle {
+    transform: translateY(0px);
+}
+
+header label {
+    color: #FFFFFF;
+}
+
+header input {
+    margin-left: 5px;
+}
+
+.toggleButton {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    transition: transform, 0.5s ease-in-out;
+    background-color: #292929;
+    padding: 8px;
+}
+
+.toggleButton.toggle {
+    transform: rotate(90deg);
+}
+
+/* TITLE SEARCH */
+
+#titleSearch {
     margin-top: 30px;
     margin-bottom: 30px;
 }
 
-#header h1 {
+#titleSearch h1 {
     color: white;
     text-shadow: 2px 2px 0px hsl(0, 0%, 22%);
 }
 
-#header h2 {
+#titleSearch h2 {
     color: #d0d0d0;
     text-shadow: 2px 2px 0px hsl(0, 0%, 22%);
     font-size: 15px;
@@ -28,11 +64,11 @@ body
     margin-bottom: 30px;
 }
 
-#header img {
+#titleSearch img {
     max-width: 100%;
 }
 
-header #search {
+#titleSearch #search {
     width: 50%;
     height: 40px;
     padding-left: 10px;

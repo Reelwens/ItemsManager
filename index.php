@@ -31,9 +31,24 @@ echo '</pre>';*/
     </head>
 
     <body>
+        <header class="header"> <!-- HEADER -->
+            <div class="container">
+                <div class="loginBar text-right">
+                    <form action="#" method="post">
+                        <input type="hidden" name="type" value="login">
+                        <label for="pseudoInput">Administrer la page :</label>
+                        <input type="text" name="pseudo" id="pseudoInput" placeholder="Pseudonyme">
+                        <input type="password" name="password" placeholder="Mot de passe">
+                    </form>
+                </div>
+            </div>
+        </header>
+        
+        <div class="toggleButton"><img src="src/img/hamburger.svg" alt="menu" width="30px" /></div>
+
         <div class="container">
 
-            <header id="header" class="row"> <!-- HEADER -->
+            <section id="titleSearch" class="row"> <!-- TITLE SEARCH -->
                 <div class="col-md-12 text-center">
                     <img src="src/img/minecraft_logo.png" alt="Logo Minecraft" width="700px" />
 
@@ -44,7 +59,7 @@ echo '</pre>';*/
                         <input type="search" placeholder="Rechercher un bloc (nom / id / type)" id="search">
                     </form>
                 </div>
-            </header>
+            </section>
 
             <section id="blocList" class="row"> <!-- BLOC LIST -->
 
