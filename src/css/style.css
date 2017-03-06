@@ -55,6 +55,7 @@ div#errorTestLogin {
     text-align: right;
     position: absolute;
     color: #b91010;
+    will-change: transform;
 }
 
 #errorTestLogin p {
@@ -67,10 +68,6 @@ div#errorTestLogin {
     will-change: transform;
 }
 
-.container.toggle {
-    transform: translateY(49px);
-}
-
 .toggleButton.toggle {
     transform: rotate(90deg);
 }
@@ -78,6 +75,7 @@ div#errorTestLogin {
 /* TITLE SEARCH */
 
 #titleSearch {
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 
@@ -247,6 +245,7 @@ section#addBlockForm div.formCase {
     top: 50%;
     transform: translateX(-130%) translateY(-50%);
     position: absolute;
+    will-change: transform;
 }
 
 #addBlockForm .error div {
@@ -256,6 +255,7 @@ section#addBlockForm div.formCase {
     text-align: right;
     position: absolute;
     color: #b91010;
+    will-change: transform;
 }
 
 #addBlockForm .error div p {

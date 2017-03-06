@@ -8,7 +8,6 @@ echo '</pre>';*/
 // Set variables
 $error_messages = array();
 $error_login = array();
-$admin = 0;
 
 // Reset the post values
 function resetPost() {
@@ -137,7 +136,7 @@ if(!empty($_POST)) {
 
     // If the user use the 'delete' post form
     else if($_POST['type'] == 'delete') {
-        if ($admin == 1) {
+        if (isset($_SESSION['admin'])) {
             $exec = $pdo->exec('DELETE FROM `items` WHERE `items`.`id` =' . $_POST['id']);
             resetPost();
         }
@@ -152,21 +151,16 @@ if(!empty($_POST)) {
 
         if(empty($error_login)) {
             // Verifiy if user/pass is in BDD
-            $query = $pdo->query('SELECT * FROM members');
-            $users = $query->fetchAll();
-
-            // If the pseudo or password is incorrect
-            if ($pseudo != $users[0]->pseudo) {
-                $error_login['login'] = 'Pseudonyme incorrect';
+            $query = $pdo->query("SELECT * FROM members WHERE pseudo = '".$pseudo."' AND pass = '".$pass."'");
+            if($query->rowCount() == 0)
+            {
+                $error_login['login'] = 'Combinaison incorrecte';
+                resetPost();
             }
-
-            else if ($pass != $users[0]->pass) {
-                $error_login['login'] = 'Mot de passe incorrect';
-            }
-
             else { // ToDo : Modify html content
-                $admin = 1;
+                $_SESSION['admin'] = 1;
             }
+            
             if(empty($error_login)) {
                 resetPost();
             }
@@ -180,6 +174,6 @@ else {
 }
 
 
-echo '<pre>';
+/*echo '<pre>';
 print_r($admin);
-echo '</pre>';
+echo '</pre>';*/

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 // Include php files
 include 'src/includes/config.php';
 include 'src/includes/handle_form.php';
@@ -31,6 +32,13 @@ echo '</pre>';*/
     </head>
 
     <body>
+       
+       <?php 
+        
+        if(!isset($_SESSION['admin'])) // If it is an admin, don't show the header
+        {
+        
+        ?>
         <header class="header"> <!-- HEADER -->
             <div class="container">
                 <div class="loginBar text-right">
@@ -38,15 +46,19 @@ echo '</pre>';*/
                     <form action="#" method="post">
                         <input type="hidden" name="type" value="login">
                         <label for="pseudoInput">Administrer la page :</label>
-                        <input type="text" name="pseudo" id="pseudoInput" placeholder="Pseudonyme" value="<?= $_POST['pseudo'] ?>" required>
+                        <input type="text" name="pseudo" id="pseudoInput" placeholder="Pseudonyme" required>
                         <input type="password" name="pass" placeholder="Mot de passe" required>
                         <input type="submit" value="Valider">
                     </form>
                 </div>
             </div>
         </header>
-        
         <div class="toggleButton"><img src="src/img/hamburger.svg" alt="menu" width="30px" /></div>
+        <?php
+            
+        } // End of the condition
+            
+        ?>
 
         <div class="container main">
 
@@ -69,11 +81,22 @@ echo '</pre>';*/
                 <div class="col-lg-3 col-md-4 col-sm-6 blocCase">
                     <div class="border">
                         <div class="itemBox text-center">
+                            <?php
+                            
+                                if(isset($_SESSION['admin'])) // If it is an admin, show the delete button
+                                {
+                                    
+                            ?>
                             <form action="#" method="post">
                                 <input type="hidden" name="type" value="delete">
                                 <input type="hidden" name="id" value="<?=$_item->id ?>">
                                 <button class="delete"><img src="src/img/delete.svg" onmouseover="this.src='src/img/delete_hover.svg';" onmouseout="this.src='src/img/delete.svg';" width="20px" alt="Supprimer" /></button>
                             </form>
+                            <?php
+                                
+                                } // End of the condition
+                            
+                            ?>
                             <div class="titleGroup">
                                 <span class="title"><?=$_item->title ?></span>
                                 <span class="mcId">#<?=$_item->mcId ?></span>
@@ -160,7 +183,11 @@ echo '</pre>';*/
                 <p>Made with <span id="hearth">&hearts;</span> by Simon.L</p>
             </footer>
         </div>
+        <script>
+            var json_items = <?= $json_items; ?>;
 
+            console.log(json_items);
+        </script>
         <script src="src/js/script.js"></script>
     </body>
 </html>
