@@ -90,7 +90,10 @@ echo '</pre>';*/
                             <form action="#" method="post">
                                 <input type="hidden" name="type" value="delete">
                                 <input type="hidden" name="id" value="<?=$_item->id ?>">
-                                <button class="delete"><img src="src/img/delete.svg" onmouseover="this.src='src/img/delete_hover.svg';" onmouseout="this.src='src/img/delete.svg';" width="20px" alt="Supprimer" /></button>
+                                <button class="delete">
+                                    <img src="src/img/delete.svg" onmouseover="this.src='src/img/delete_hover.svg';" onmouseout="this.src='src/img/delete.svg';" width="20px" alt="Supprimer" />
+                                    <span>Supprimer</span>
+                                </button>
                             </form>
                             <?php
                                 
@@ -139,6 +142,7 @@ echo '</pre>';*/
                                     <div class="hidden-xs"><p><?= array_key_exists('textureImg', $error_messages) ? $error_messages['textureImg'] : '' ?></p></div>
                                     <img src="src/img/error.svg" alt="error" width="20px" />
                                     <input type="file" name="textureImg" id="uploadPicture" required>
+                                    <span>Carré < 15Ko</span>
                                 </div>
 
                                 <div class="nameCategory <?= array_key_exists('category', $error_messages) ? 'error' : '' ?>">
