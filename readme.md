@@ -24,7 +24,7 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Boots
 * PHP : Mise en ligne sécurisée via PDO.
 
 ##### Fonctionnalités avancées :
-* PHP : Connexion session administrateur avec droits supplémentaires
+* PHP : Connexion & déconnexion session administrateur avec droits supplémentaires
 * PHP : Suppression des items de la base de donnée depuis le site internet (en tant qu'administrateur)
 * PHP : Mise en sécurisée d'images sur le serveur (apparence de l'item Minecraft) :
     * Vérification de la taille (15 Ko)
@@ -43,6 +43,6 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Boots
 * PHP : Affichage des items dans l'ordre numérique des ID Minecraft
 * PHP : Formatage en français de la date renvoyée par la base de donnée
 * PHP : Conversion de la base de donnée en Json pour une utilisation JS
-* JS : Recherche dynamiques des items selon leur nom, id & catégorie
+* JS : Recherche dynamique des items selon leur nom, id & catégorie
 * CSS : Site entierement responsive, peu importe le nombre d'items
 * CSS : Style CSS reprenant les codes graphiques du jeu Minecraft
