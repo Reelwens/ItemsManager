@@ -57,6 +57,26 @@ $json_items = json_encode($items);
         <?php
             
         } // End of the condition
+        
+        if(isset($_SESSION['admin'])) // If it is an admin, show the header
+        {
+        
+        ?>
+        <header class="header"> <!-- HEADER -->
+            <div class="container">
+                <div class="loginBar text-right">
+                    <form action="#" method="post">
+                        <input type="hidden" name="type" value="unlogin">
+                        <label>Session : <?= $_SESSION['pseudo'] ?></label>
+                        <input type="submit" value="Se déconnecter">
+                    </form>
+                </div>
+            </div>
+        </header>
+        <div class="toggleButton"><img src="src/img/hamburger.svg" alt="menu" width="30px" /></div>
+        <?php
+            
+        } // End of the condition
             
         ?>
 

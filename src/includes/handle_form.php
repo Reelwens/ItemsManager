@@ -142,6 +142,11 @@ if(!empty($_POST)) {
         }
     }
 
+    else if($_POST['type'] == 'unlogin') {
+        session_destroy();
+        
+    }
+
     // If the user use the 'login' post form
     else if($_POST['type'] == 'login') {
         
@@ -149,21 +154,20 @@ if(!empty($_POST)) {
         $pseudo = $_POST['pseudo'];
         $pass = sha1($_POST['pass']);
 
+        // Verifiy if user/pass is in BDD
+        $query = $pdo->query("SELECT * FROM members WHERE pseudo = '".$pseudo."' AND pass = '".$pass."'");
+        if($query->rowCount() == 0)
+        {
+            $error_login['login'] = 'Combinaison incorrecte';
+            resetPost();
+        }
+        else { // ToDo : Modify html content
+            $_SESSION['admin'] = 1;
+            $_SESSION['pseudo'] = $pseudo;
+        }
+
         if(empty($error_login)) {
-            // Verifiy if user/pass is in BDD
-            $query = $pdo->query("SELECT * FROM members WHERE pseudo = '".$pseudo."' AND pass = '".$pass."'");
-            if($query->rowCount() == 0)
-            {
-                $error_login['login'] = 'Combinaison incorrecte';
-                resetPost();
-            }
-            else { // ToDo : Modify html content
-                $_SESSION['admin'] = 1;
-            }
-            
-            if(empty($error_login)) {
-                resetPost();
-            }
+            resetPost();
         }
     }
 }
