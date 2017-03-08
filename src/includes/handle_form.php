@@ -144,7 +144,7 @@ if(!empty($_POST)) {
 
     else if($_POST['type'] == 'unlogin') {
         session_destroy();
-        
+        resetPost();
     }
 
     // If the user use the 'login' post form
