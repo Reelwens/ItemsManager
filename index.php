@@ -11,9 +11,9 @@ $items = $query->fetchAll();
 // Make a json format
 $json_items = json_encode($items);
 
-/*echo '<pre>';
-print_r($items);
-echo '</pre>';*/
+echo '<pre>';
+print_r($json_items);
+echo '</pre>';
 
 ?>
 
