@@ -1,19 +1,30 @@
+// SEARCH DISPLAYER
+var input = document.querySelector('#search'); // Element Eventlistened
+var allBox = document.querySelectorAll('.blocCase');
+
 function findItems(search, json_items) {
     return json_items.filter(Object => {
-        const regex = new RegExp (search, 'gi'); // g = all; i = everywhere in the word
+        var regex = new RegExp (search, 'gi'); // g = many results; i = caps or no caps
         return Object.mcId.match(regex) || Object.title.match(regex) || Object.category.match(regex); // return all object with the search
-    })
+    });
 }
 
 function printResult() {
-    const arrayResult = findItems(this.value, json_items);
+    var arrayResult = findItems(this.value, json_items); // Set arguments
+    hideAll(); // Hide all box
     arrayResult.map(Object => {
-        console.log(Object.mcId);
+        var div = document.getElementsByClassName('id_' + Object.id);
+        for (var i = 0; i < div.length; i++) { // For all box with the correct search
+            div[i].classList.remove('hidden'); // Display it
+        }
     });
-    console.log(arrayResult);
 }
 
-const input = document.querySelector('#search'); // Element Eventlistened
+function hideAll() { // Applicate hidden class to all box
+    for (var i = 0; i < allBox.length; i++) {
+        allBox[i].classList.add('hidden');
+    }
+}
 
 input.addEventListener('change', printResult); // When mouse is over the input
 input.addEventListener('keyup', printResult); // When a new key is writen
@@ -21,14 +32,7 @@ input.addEventListener('keyup', printResult); // When a new key is writen
 
 
 
-
-
-
-
-
-
-
-// Visibility of the header
+// HEADER VISIBILITY
 var header = document.querySelector('header'),
     toggleButton = document.querySelector('.toggleButton');
 

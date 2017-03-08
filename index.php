@@ -11,9 +11,9 @@ $items = $query->fetchAll();
 // Make a json format
 $json_items = json_encode($items);
 
-echo '<pre>';
-print_r($json_items);
-echo '</pre>';
+//echo '<pre>';
+//print_r($json_items);
+//echo '</pre>';
 
 ?>
 
@@ -78,9 +78,9 @@ echo '</pre>';
             <section id="blocList" class="row"> <!-- BLOC LIST -->
 
                 <?php foreach($items as $_item): ?>
-                <div class="col-lg-3 col-md-4 col-sm-6 blocCase">
-                    <div class="border">
-                        <div class="itemBox text-center">
+                <div class="col-lg-3 col-md-4 col-sm-6 blocCase id_<?=$_item->id ?>">
+                    <div class="border ">
+                        <div class="itemBox text-center ">
                             <?php
                             
                                 if(isset($_SESSION['admin'])) // If it is an admin, show the delete button
@@ -107,7 +107,7 @@ echo '</pre>';
                             <div><img src="src/img/uploaded/<?=$_item->textureImg ?>" alt="Item" class="textureImg" width="64px" /></div>
                             <p class="category"><?=$_item->category ?></p>
                             <p class="description"><?=$_item->description ?></p>
-                            <p class="date">Ajout : <?=Date('G:i\,\ \l\e d/m/Y', strtotime($_item->date))?></p>
+                            <p class="date">Ajout : <?=Date('G:i\,\ \l\e d/m/Y', strtotime($_item->date))?></p> <!-- Formate date -->
                         </div>
                     </div>
                 </div>
