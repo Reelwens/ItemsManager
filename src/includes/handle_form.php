@@ -143,6 +143,7 @@ if(!empty($_POST)) {
     }
 
     else if($_POST['type'] == 'unlogin') {
+        $_SESSION = array();
         session_destroy();
         resetPost();
     }
