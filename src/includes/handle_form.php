@@ -116,7 +116,7 @@ if(!empty($_POST)) {
         // If the form is fill correctly
         if(empty($error_messages)) {
             // Save image in a specific folder
-            move_uploaded_file($_FILES['textureImg']['tmp_name'],'src/img/uploaded/' . $textureImg);
+            move_uploaded_file($_FILES['textureImg']['tmp_name'],'img/uploaded/' . $textureImg);
 
             // Prepare the SQL request
             $prepare = $pdo->prepare('INSERT INTO items (title, mcId, textureImg, category, description) VALUES (:title, :mcId, :textureImg, :category, :description)');

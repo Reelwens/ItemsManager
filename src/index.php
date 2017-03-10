@@ -109,6 +109,7 @@ $json_items = json_encode($items);
                             ?>
                             <form action="#" method="post">
                                 <input type="hidden" name="type" value="delete">
+                                <input type="hidden" name="id" value="<?=$_item->id ?>">
                                 <button class="delete">
                                     <img src="img/delete.svg" onmouseover="this.src='img/delete_hover.svg';" onmouseout="this.src='img/delete.svg';" width="20px" alt="Supprimer" />
                                     <span>Supprimer</span>
