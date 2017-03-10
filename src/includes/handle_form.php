@@ -91,8 +91,8 @@ if(!empty($_POST)) {
         if (empty($category))
             $error_messages['category'] = 'Donnée manquante';
         // Text too long
-        else if (strlen($category) > 18)
-            $error_messages['category'] = '18 lettres max.';
+        else if (strlen($category) > 20)
+            $error_messages['category'] = '20 lettres max.';
         // Text too short
         else if (strlen($category) < 3)
             $error_messages['category'] = '3 lettres min.';
@@ -170,6 +170,12 @@ if(!empty($_POST)) {
         if(empty($error_login)) {
             resetPost();
         }
+    }
+    
+    else if($_POST['type'] == 'order') {
+        $_SESSION['order'] = $_POST['order'];
+        
+        resetPost();
     }
 }
 

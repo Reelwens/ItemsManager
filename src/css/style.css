@@ -76,6 +76,10 @@ div#errorTestLogin {
     transform: rotate(90deg);
 }
 
+.sortText {
+    color: white;
+}
+
 /* TITLE SEARCH */
 
 #titleSearch {
@@ -102,10 +106,45 @@ div#errorTestLogin {
 }
 
 #titleSearch #search {
-    width: 50%;
-    height: 40px;
+    height: 45px;
     padding-left: 10px;
     padding-right: 10px;
+    border: 3px solid #909090;
+    outline: none;
+}
+
+#titleSearch form {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#titleSearch form .order {
+    height: 30px;
+    width: 120px;
+    border: 2px solid #909090;
+}
+
+#titleSearch form .valid {
+    height: 30px;
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #a0a0a0;
+    border-bottom: 3px solid #a0a0a0;
+    background-color: #bebebe;
+    outline: none;
+}
+
+#titleSearch form .valid:hover {
+    background-color: #d4d4d4;
+}
+
+#titleSearch form .valid:active {
+    height: 30px;
+    border-top: 1px solid #9b9b9b;
+    border-left: 1px solid #9b9b9b;
+    border-right: 1px solid #bfbfbf;
+    border-bottom: 3px solid #bfbfbf;
+    background-color: #d4d4d4;
 }
 
 /* BLOC LIST */
@@ -245,21 +284,26 @@ section#addBlockForm div.formCase {
     font-size: 15px;
     font-weight: 400;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 #addBlockForm input, #addBlockForm textarea {
     margin-bottom: 25px;
+    border: 3px solid #bcbcbc;
+    height: 38px;
+    width: 215px;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
-#nameItemInput, #numberIdInput, #nameCategoryInput {
-    width: 200px;
-}
-
-#uploadPicture {
+#addBlockForm #uploadPicture {
     display: inline-block;
     font-weight: 700;
     color: #5d5d5d;
+    border: none;
+    margin-bottom: 15px;
+    width: 350px;
 }
 
 .addForm div span {
@@ -290,6 +334,35 @@ section#addBlockForm div.formCase {
 #addBlockForm div img {
     display: none;
 }
+
+#addBlockForm textarea {
+    height: 38px;
+}
+
+#addBlockForm .valid {
+    height: 30px;
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #a0a0a0;
+    border-bottom: 3px solid #a0a0a0;
+    background-color: #bebebe;
+    outline: none;
+    margin-bottom: 40px;
+}
+
+#addBlockForm .valid:hover {
+    background-color: #d4d4d4;
+}
+
+#addBlockForm .valid:active {
+    height: 30px;
+    border-top: 1px solid #9b9b9b;
+    border-left: 1px solid #9b9b9b;
+    border-right: 1px solid #bfbfbf;
+    border-bottom: 3px solid #bfbfbf;
+    background-color: #d4d4d4;
+}
+
 
 /* error messages style */
 #addBlockForm .error img {

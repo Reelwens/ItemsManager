@@ -4,8 +4,11 @@ session_start();
 include 'includes/config.php';
 include 'includes/handle_form.php';
 
+// Define dession order and default session order
+$_SESSION['order'] = (isset($_SESSION['order'])) ? $_SESSION['order'] : 'mcId';
+
 // Fetch all items in right order
-$query = $pdo->query('SELECT * FROM `items` ORDER BY `items`.`mcId` ASC');
+$query = $pdo->query('SELECT * FROM `items` ORDER BY `items`.`'.$_SESSION['order'].'` ASC');
 $items = $query->fetchAll();
 
 // Make a json format
@@ -53,7 +56,7 @@ $json_items = json_encode($items);
                 </div>
             </div>
         </header>
-        <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30px" /></div>
+        <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30" /></div>
         <?php
             
         } // End of the condition
@@ -73,7 +76,7 @@ $json_items = json_encode($items);
                 </div>
             </div>
         </header>
-        <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30px" /></div>
+        <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30" /></div>
         <?php
             
         } // End of the condition
@@ -84,13 +87,25 @@ $json_items = json_encode($items);
 
             <section id="titleSearch" class="row"> <!-- TITLE SEARCH -->
                 <div class="col-md-12 text-center">
-                    <img src="img/minecraft_logo.png" alt="Logo Minecraft" width="700px" />
+                    <img src="img/minecraft_logo.png" alt="Logo Minecraft" width="700" />
 
                     <h1>Gestionnaire d'items Minecraft</h1>
                     <h2>Cataloguez vos items favoris, et proposez vos propres items à la communauté !</h2>
 
-                    <form action="#">
-                        <input type="search" placeholder="Rechercher un bloc (nom / id / type)" id="search">
+                    <div class="row"><input type="search" placeholder="Rechercher un bloc (nom / id / type)" id="search" class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2 col-xs-10 col-xs-offset-1"></div>
+                    <form action="#" method="post">
+                        <input type="hidden" name="type" value="order">
+                        
+                        <span class="sortText">Trier par:</span>
+                        
+                        <!-- Keep the selected order in the session variable -->
+                        <select name="order" class="order">
+                            <option value="mcId"     <?php if($_SESSION['order'] == 'mcId' )    echo 'selected="selected"' ?>>ID Minecraft</option>
+                            <option value="title"    <?php if($_SESSION['order'] == 'title')    echo 'selected="selected"' ?>>Nom d'item</option>
+                            <option value="category" <?php if($_SESSION['order'] == 'category') echo 'selected="selected"' ?>>Catégorie</option>
+                            <option value="date"     <?php if($_SESSION['order'] == 'date')     echo 'selected="selected"' ?>>Date d'ajout</option>
+                        </select>
+                        <input type="submit" name="valid" value="Valider" class="valid">
                     </form>
                 </div>
             </section>
@@ -111,7 +126,7 @@ $json_items = json_encode($items);
                                 <input type="hidden" name="type" value="delete">
                                 <input type="hidden" name="id" value="<?=$_item->id ?>">
                                 <button class="delete">
-                                    <img src="img/delete.svg" onmouseover="this.src='img/delete_hover.svg';" onmouseout="this.src='img/delete.svg';" width="20px" alt="Supprimer" />
+                                    <img src="img/delete.svg" onmouseover="this.src='img/delete_hover.svg';" onmouseout="this.src='img/delete.svg';" width="20" alt="Supprimer" />
                                     <span>Supprimer</span>
                                 </button>
                             </form>
@@ -124,7 +139,7 @@ $json_items = json_encode($items);
                                 <span class="title"><?=$_item->title ?></span>
                                 <span class="mcId">#<?=$_item->mcId ?></span>
                             </div>
-                            <div><img src="img/uploaded/<?=$_item->textureImg ?>" alt="Item" class="textureImg" width="64px" /></div>
+                            <div><img src="img/uploaded/<?=$_item->textureImg ?>" alt="Item" class="textureImg" width="64" /></div>
                             <p class="category"><?=$_item->category ?></p>
                             <p class="description"><?=$_item->description ?></p>
                             <p class="date">Ajout : <?=Date('G:i\,\ \l\e d/m/Y', strtotime($_item->date))?></p> <!-- Formate date -->
@@ -146,54 +161,54 @@ $json_items = json_encode($items);
                                 <div class="nameItem <?= array_key_exists('title', $error_messages) ? 'error' : '' ?>">
                                     <label for="nameItemInput">— Nom de l'item —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('title', $error_messages) ? $error_messages['title'] : '' ?></p></div>
-                                    <img src="img/error.svg" alt="error" width="20px" />
-                                    <input type="text" name="title" id="nameItemInput" placeholder="Grass" value="<?= $_POST['title'] ?>" required>
+                                    <img src="img/error.svg" alt="error" width="20" />
+                                    <input type="text" name="title" id="nameItemInput" placeholder="Herbe" value="<?= $_POST['title'] ?>" required>
                                 </div>
 
                                 <div class="numberId <?= array_key_exists('mcId', $error_messages) ? 'error' : '' ?>">
                                     <label for="numberIdInput">— ID —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('mcId', $error_messages) ? $error_messages['mcId'] : '' ?></p></div>
-                                    <img src="img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20" />
                                     <input type="number" name="mcId" id="numberIdInput" placeholder="2" value="<?= $_POST['mcId'] ?>" required>
                                 </div>
 
                                 <div class="picture <?= array_key_exists('textureImg', $error_messages) ? 'error' : '' ?>">
                                     <label for="uploadPicture">— Aperçu de l'item —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('textureImg', $error_messages) ? $error_messages['textureImg'] : '' ?></p></div>
-                                    <img src="img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20" />
                                     <input type="file" name="textureImg" id="uploadPicture" required>
-                                    <span>Carré < 15Ko</span>
+                                    <span>Carré &lt; 15Ko</span>
                                 </div>
 
                                 <div class="nameCategory <?= array_key_exists('category', $error_messages) ? 'error' : '' ?>">
                                     <label for="nameCategoryInput">— Catégorie —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('category', $error_messages) ? $error_messages['category'] : '' ?></p></div>
-                                    <img src="img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20" />
                                     <input list="itemList" autocomplete="off" type="text" name="category" id="nameCategoryInput" placeholder="Bloc" value="<?= $_POST['category'] ?>" required>
                                     <datalist id="itemList">
-                                        <option value="Blocs"></option>
-                                        <option value="Décoratifs"></option>
+                                        <option value="Bloc"></option>
+                                        <option value="Décoratif"></option>
                                         <option value="Redstone"></option>
                                         <option value="Transport"></option>
                                         <option value="Divers"></option>
                                         <option value="Nourriture"></option>
-                                        <option value="Outils"></option>
+                                        <option value="Outil"></option>
                                         <option value="Combat"></option>
-                                        <option value="Potions"></option>
-                                        <option value="Matières premières"></option>
+                                        <option value="Potion"></option>
+                                        <option value="Matière première"></option>
                                     </datalist>
                                 </div>
 
                                 <div class="textDescription <?= array_key_exists('description', $error_messages) ? 'error' : '' ?>">
                                     <label for="textDescriptionInput">— Description —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('description', $error_messages) ? $error_messages['description'] : '' ?></p></div>
-                                    <img src="img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20" />
                                     <textarea name="description" id="textDescriptionInput" placeholder="Composé de terre et d'herbe"><?= $_POST['description'] ?></textarea>
                                 </div>
 
                                 <div>
                                     <input type="hidden" name="type" value="add" />
-                                    <input type="submit" value="Valider">
+                                    <input type="submit" value="Valider" class="valid">
                                 </div>
 
                             </form>
