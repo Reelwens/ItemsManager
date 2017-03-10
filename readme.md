@@ -10,7 +10,7 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Boots
 - Importer la base de donnée SQL `install\gestionnaire.sql` via phpmyadmin
 - Modifier le nom d'utilisateur et le mot de passe de la base de donnée dans le fichier `src\includes\handle_form.php`
 - Executer la commande `npm install` puis `gulp` dans le terminal à la racine
-- Lancer `dist\index.php` sur un serveur
+- Importer et lancer `dist\` à sa racine sur un serveur
 
 ## Remarques
 * Des images sont mises à disposition dans `install\item_for_try\` afin de tester rapidement les contrôles réalisés
