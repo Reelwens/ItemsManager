@@ -1,8 +1,8 @@
 <?php 
 session_start();
 // Include php files
-include 'src/includes/config.php';
-include 'src/includes/handle_form.php';
+include 'includes/config.php';
+include 'includes/handle_form.php';
 
 // Fetch all items in right order
 $query = $pdo->query('SELECT * FROM `items` ORDER BY `items`.`mcId` ASC');
@@ -24,11 +24,11 @@ $json_items = json_encode($items);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
         <title>Gestionnaire d'items Minecraft</title>
-        <link rel="icon" type="image/png" href="src/img/favicon.png" sizes="64x64">
+        <link rel="icon" type="image/png" href="img/favicon.png" sizes="64x64">
         <link href="https://fonts.googleapis.com/css?family=Quantico:400,400i,700,700i" rel="stylesheet">
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="src/css/style.css">
+        <link rel="stylesheet" href="css/style.min.css">
     </head>
 
     <body>
@@ -53,7 +53,7 @@ $json_items = json_encode($items);
                 </div>
             </div>
         </header>
-        <div class="toggleButton"><img src="src/img/hamburger.svg" alt="menu" width="30px" /></div>
+        <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30px" /></div>
         <?php
             
         } // End of the condition
@@ -73,7 +73,7 @@ $json_items = json_encode($items);
                 </div>
             </div>
         </header>
-        <div class="toggleButton"><img src="src/img/hamburger.svg" alt="menu" width="30px" /></div>
+        <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30px" /></div>
         <?php
             
         } // End of the condition
@@ -84,7 +84,7 @@ $json_items = json_encode($items);
 
             <section id="titleSearch" class="row"> <!-- TITLE SEARCH -->
                 <div class="col-md-12 text-center">
-                    <img src="src/img/minecraft_logo.png" alt="Logo Minecraft" width="700px" />
+                    <img src="img/minecraft_logo.png" alt="Logo Minecraft" width="700px" />
 
                     <h1>Gestionnaire d'items Minecraft</h1>
                     <h2>Cataloguez vos items favoris, et proposez vos propres items à la communauté !</h2>
@@ -110,7 +110,7 @@ $json_items = json_encode($items);
                             <form action="#" method="post">
                                 <input type="hidden" name="type" value="delete">
                                 <button class="delete">
-                                    <img src="src/img/delete.svg" onmouseover="this.src='src/img/delete_hover.svg';" onmouseout="this.src='src/img/delete.svg';" width="20px" alt="Supprimer" />
+                                    <img src="img/delete.svg" onmouseover="this.src='img/delete_hover.svg';" onmouseout="this.src='img/delete.svg';" width="20px" alt="Supprimer" />
                                     <span>Supprimer</span>
                                 </button>
                             </form>
@@ -123,7 +123,7 @@ $json_items = json_encode($items);
                                 <span class="title"><?=$_item->title ?></span>
                                 <span class="mcId">#<?=$_item->mcId ?></span>
                             </div>
-                            <div><img src="src/img/uploaded/<?=$_item->textureImg ?>" alt="Item" class="textureImg" width="64px" /></div>
+                            <div><img src="img/uploaded/<?=$_item->textureImg ?>" alt="Item" class="textureImg" width="64px" /></div>
                             <p class="category"><?=$_item->category ?></p>
                             <p class="description"><?=$_item->description ?></p>
                             <p class="date">Ajout : <?=Date('G:i\,\ \l\e d/m/Y', strtotime($_item->date))?></p> <!-- Formate date -->
@@ -145,21 +145,21 @@ $json_items = json_encode($items);
                                 <div class="nameItem <?= array_key_exists('title', $error_messages) ? 'error' : '' ?>">
                                     <label for="nameItemInput">— Nom de l'item —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('title', $error_messages) ? $error_messages['title'] : '' ?></p></div>
-                                    <img src="src/img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20px" />
                                     <input type="text" name="title" id="nameItemInput" placeholder="Grass" value="<?= $_POST['title'] ?>" required>
                                 </div>
 
                                 <div class="numberId <?= array_key_exists('mcId', $error_messages) ? 'error' : '' ?>">
                                     <label for="numberIdInput">— ID —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('mcId', $error_messages) ? $error_messages['mcId'] : '' ?></p></div>
-                                    <img src="src/img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20px" />
                                     <input type="number" name="mcId" id="numberIdInput" placeholder="2" value="<?= $_POST['mcId'] ?>" required>
                                 </div>
 
                                 <div class="picture <?= array_key_exists('textureImg', $error_messages) ? 'error' : '' ?>">
                                     <label for="uploadPicture">— Aperçu de l'item —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('textureImg', $error_messages) ? $error_messages['textureImg'] : '' ?></p></div>
-                                    <img src="src/img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20px" />
                                     <input type="file" name="textureImg" id="uploadPicture" required>
                                     <span>Carré < 15Ko</span>
                                 </div>
@@ -167,7 +167,7 @@ $json_items = json_encode($items);
                                 <div class="nameCategory <?= array_key_exists('category', $error_messages) ? 'error' : '' ?>">
                                     <label for="nameCategoryInput">— Catégorie —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('category', $error_messages) ? $error_messages['category'] : '' ?></p></div>
-                                    <img src="src/img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20px" />
                                     <input list="itemList" autocomplete="off" type="text" name="category" id="nameCategoryInput" placeholder="Bloc" value="<?= $_POST['category'] ?>" required>
                                     <datalist id="itemList">
                                         <option value="Blocs"></option>
@@ -186,7 +186,7 @@ $json_items = json_encode($items);
                                 <div class="textDescription <?= array_key_exists('description', $error_messages) ? 'error' : '' ?>">
                                     <label for="textDescriptionInput">— Description —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('description', $error_messages) ? $error_messages['description'] : '' ?></p></div>
-                                    <img src="src/img/error.svg" alt="error" width="20px" />
+                                    <img src="img/error.svg" alt="error" width="20px" />
                                     <textarea name="description" id="textDescriptionInput" placeholder="Composé de terre et d'herbe"><?= $_POST['description'] ?></textarea>
                                 </div>
 
@@ -211,6 +211,6 @@ $json_items = json_encode($items);
 
             console.log(json_items);
         </script>
-        <script src="src/js/script.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

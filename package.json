@@ -1,0 +1,31 @@
+{
+  "name": "items_manager",
+  "version": "1.0.0",
+  "description": "![N|Solid](http://image.noelshack.com/fichiers/2017/09/1488649702-minecraft-items.gif)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Reelwens/Items_manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Reelwens/Items_manager/issues"
+  },
+  "homepage": "https://github.com/Reelwens/Items_manager#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-minify": "0.0.15",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.0"
+  }
+}
