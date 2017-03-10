@@ -3,7 +3,7 @@
 
 Minecraft items manager est un site internet permettant à ses utilisateurs de gérer les différents items du jeu et d'y ajouter les leurs. Ce projet répond à un devoir scolaire à [HETIC](https://hetic.net/) consistant a réaliser un gestionnaire d'inventaire PHP sur le thème de notre choix.
 
-Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Bootstrap.
+Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, Bootstrap & Gulp.
 
 ## Installation
 
