@@ -8,8 +8,9 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Boots
 ## Installation
 
 - Importer la base de donnée SQL `install\gestionnaire.sql` via phpmyadmin
-- Modifier le nom d'utilisateur et le mot de passe dans le fichier `src\includes\handle_form.php`
-- Executer le projet sur un serveur
+- Modifier le nom d'utilisateur et le mot de passe de la base de donnée dans le fichier `src\includes\handle_form.php`
+- Executer la commande `npm install` puis `gulp` dans le terminal à la racine
+- Lancer `dist\index.php` sur un serveur
 
 ## Remarques
 * Des images sont mises à disposition dans `install\item_for_try\` afin de tester rapidement les contrôles réalisés
@@ -46,3 +47,4 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, & Boots
 * JS : Recherche dynamique des items selon leur nom, id & catégorie
 * CSS : Site entierement responsive, peu importe le nombre d'items
 * CSS : Style CSS reprenant les codes graphiques du jeu Minecraft
+* Organisation : Utilisation de gulp afin d'optimiser les performances
