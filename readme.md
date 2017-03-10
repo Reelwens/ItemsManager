@@ -45,6 +45,7 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, Bootstr
 * PHP : Affichage des items dans l'ordre numérique des ID Minecraft
 * PHP : Formatage en français de la date renvoyée par la base de donnée
 * PHP : Conversion de la base de donnée en Json pour une utilisation JS
+* PHP : Différents types de triage proposés
 * JS : Recherche dynamique des items selon leur nom, id & catégorie
 * CSS : Site entierement responsive, peu importe le nombre d'items
 * CSS : Style CSS reprenant les codes graphiques du jeu Minecraft
