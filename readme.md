@@ -16,6 +16,10 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, Bootstr
 * Des images sont mises à disposition dans `install\item_for_try\` afin de tester rapidement les contrôles réalisés
 * Le site internet est directement consultable en ligne à [cette adresse](https://www.simonlucas.fr/web/item_manager/).
 
+Les identifiants de connexion administrateur du site sont les suivants :
+- Pseudonyme : `brunosimon`
+- Mot de passe : `hetic`
+
 ## Fonctionnalités
 
 ##### Fonctionnalités de base :
