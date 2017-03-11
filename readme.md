@@ -7,8 +7,8 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, Bootstr
 
 ## Installation
 
-- Importer la base de donnée SQL `install\gestionnaire.sql` via phpmyadmin
-- Modifier le nom d'utilisateur et le mot de passe de la base de donnée dans le fichier `src\includes\config.php`
+- Importer les tables SQL `install\gestionnaire.sql` via phpmyadmin dans une base de donnée d'interclassement utf8_general_ci
+- Modifier le nom de la base de donnée, le nom d'utilisateur et le mot de passe d'accès dans le fichier `src\includes\config.php`
 - Executer la commande `npm install` puis `gulp` dans le terminal à la racine
 - Importer et lancer `dist\` à sa racine sur un serveur
 
