@@ -1,0 +1,114 @@
+section#blocList .blocCase {
+    padding: 0; 
+}
+
+.border {
+    border: 1px solid black;
+    margin: 15px;
+}
+
+.itemBox {
+    position: relative;
+    border-top: 2px solid #b4b4b4;
+    border-left: 2px solid #b4b4b4;
+    border-right: 2px solid #606060;
+    border-bottom: 4px solid #606060;
+    background-color: #868686;
+    transition: background-color 0.3s, border 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+#blocList .itemBox:hover {
+    border-top: 2px solid #bec7ff;
+    border-left: 2px solid #bec7ff;
+    border-right: 2px solid #5b659c;
+    border-bottom: 4px solid #5b659c;
+    background-color: #949ab9;
+    cursor: default;
+}
+
+.itemBox .titleGroup {
+    padding: 15px 0;
+}
+
+.itemBox .title {
+    font-size: 25px;
+    font-weight: 700;
+    color: #e0e0e0;
+    text-shadow: 2px 2px 0px hsl(0, 0%, 22%);
+    transition: color 0.3s, text-shadow 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.itemBox:hover .title {
+    color: #ffffa0;
+    text-shadow: 2px 2px 0px hsl(60, 12%, 25%);
+}
+
+.itemBox .mcId {
+    font-size: 20px;
+    font-weight: 400;
+    color: #d9d9d9;
+    text-shadow: 2px 2px 0px #393939;
+    transition: color 0.3s, text-shadow 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.itemBox:hover .mcId {
+    color: #eaf28e;
+    text-shadow: 2px 2px 0px #3b3b34;
+}
+
+.itemBox .category {
+    padding-top: 15px;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #e0e0e0;
+    text-shadow: 2px 2px 0px hsla(0, 0%, 22%, 0.49);
+    transition: color 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+.itemBox:hover .category {
+    color: #ffffa0;
+}
+
+.itemBox .description {
+    max-height: 20px;
+    overflow: hidden;
+}
+
+.itemBox .date {
+    padding-bottom: 15px;
+    color: #5d5d5d;
+}
+
+.itemBox .delete {
+    position: absolute;
+    right: 9px;
+    top: 7px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline-style: none;
+}
+
+.itemBox .delete span {
+    position: absolute;
+    margin-top: -55px;
+    margin-left: -45px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.88);
+    padding: 5px 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0,0,0,.5);
+    transform: scale(0) rotate(-12deg);
+    transition: all .25s;
+    opacity: 0;
+}
+
+.itemBox .delete:hover span {
+    transform:scale(1) rotate(0);
+    opacity: 1;
+}

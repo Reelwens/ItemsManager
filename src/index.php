@@ -13,13 +13,7 @@ $items = $query->fetchAll();
 
 // Make a json format
 $json_items = json_encode($items);
-
-//echo '<pre>';
-//print_r($json_items);
-//echo '</pre>';
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -35,14 +29,14 @@ $json_items = json_encode($items);
     </head>
 
     <body>
-       
-       <?php 
-        
+
+        <?php 
+
         if(!isset($_SESSION['admin'])) // If it is an admin, don't show the header
         {
-        
+
         ?>
-        <header class="header"> <!-- HEADER -->
+        <header class="header"> <!-- BASIC HEADER -->
             <div class="container">
                 <div class="loginBar text-right">
                     <div id="errorTestLogin"><p><?= array_key_exists('login', $error_login) ? $error_login['login'] : '' ?></p></div>
@@ -58,14 +52,14 @@ $json_items = json_encode($items);
         </header>
         <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30" /></div>
         <?php
-            
+
         } // End of the condition
-        
+
         if(isset($_SESSION['admin'])) // If it is an admin, show the header
         {
-        
+
         ?>
-        <header class="header"> <!-- HEADER -->
+        <header class="header"> <!-- ADMIN HEADER -->
             <div class="container">
                 <div class="loginBar text-right">
                     <form action="#" method="post">
@@ -78,9 +72,9 @@ $json_items = json_encode($items);
         </header>
         <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30" /></div>
         <?php
-            
+
         } // End of the condition
-            
+
         ?>
 
         <div class="container main">
@@ -95,9 +89,9 @@ $json_items = json_encode($items);
                     <div class="row"><input type="search" placeholder="Rechercher un bloc (nom / id / type)" id="search" class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2 col-xs-10 col-xs-offset-1"></div>
                     <form action="#" method="post">
                         <input type="hidden" name="type" value="order">
-                        
+
                         <span class="sortText">Trier par:</span>
-                        
+
                         <!-- Keep the selected order in the session variable -->
                         <select name="order" class="order">
                             <option value="mcId"     <?php if($_SESSION['order'] == 'mcId' )    echo 'selected="selected"' ?>>ID Minecraft</option>
@@ -112,28 +106,28 @@ $json_items = json_encode($items);
 
             <section id="blocList" class="row"> <!-- BLOC LIST -->
 
-                <?php foreach($items as $_item): ?>
+                <?php foreach($items as $_item): ?> <!-- For each item, display an element -->
                 <div class="col-lg-3 col-md-4 col-sm-6 blocCase id_<?=$_item->id ?>">
                     <div class="border ">
                         <div class="itemBox text-center ">
                             <?php
-                            
-                                if(isset($_SESSION['admin'])) // If it is an admin, show the delete button
-                                {
-                                    
+
+    if(isset($_SESSION['admin'])) // If it is an admin, show the delete button
+    {
+
                             ?>
                             <form action="#" method="post">
                                 <input type="hidden" name="type" value="delete">
-                                <input type="hidden" name="id" value="<?=$_item->id ?>">
+                                <input type="hidden" name="id" value="<?=$_item->id ?>"> <!-- Needed to select the element-->
                                 <button class="delete">
                                     <img src="img/delete.svg" onmouseover="this.src='img/delete_hover.svg';" onmouseout="this.src='img/delete.svg';" width="20" alt="Supprimer" />
                                     <span>Supprimer</span>
                                 </button>
                             </form>
                             <?php
-                                
-                                } // End of the condition
-                            
+
+    } // End of the condition
+
                             ?>
                             <div class="titleGroup">
                                 <span class="title"><?=$_item->title ?></span>
@@ -150,19 +144,19 @@ $json_items = json_encode($items);
 
 
             </section>
-            <section id="addBlockForm" class="row"> <!-- BLOC FORM -->
+            <section id="addBlockForm" class="row"> <!-- ITEM FORM -->
 
                 <div class="col-lg-8 col-lg-offset-2 formCase">
                     <div class="border">
                         <div class="itemBox text-center">
                             <h2 class="title">Ajouter un item</h2>
-                            <form action="#" method="post" enctype="multipart/form-data" class="addForm">
+                            <form action="#" method="post" enctype="multipart/form-data" class="addForm"> <!-- Add multipart enctype for images -->
 
-                                <div class="nameItem <?= array_key_exists('title', $error_messages) ? 'error' : '' ?>">
+                                <div class="nameItem <?= array_key_exists('title', $error_messages) ? 'error' : '' ?>"> <!-- Add class error -->
                                     <label for="nameItemInput">— Nom de l'item —</label>
-                                    <div class="hidden-xs"><p><?= array_key_exists('title', $error_messages) ? $error_messages['title'] : '' ?></p></div>
+                                    <div class="hidden-xs"><p><?= array_key_exists('title', $error_messages) ? $error_messages['title'] : '' ?></p></div> <!-- Display error message -->
                                     <img src="img/error.svg" alt="error" width="20" />
-                                    <input type="text" name="title" id="nameItemInput" placeholder="Herbe" value="<?= $_POST['title'] ?>" required>
+                                    <input type="text" name="title" id="nameItemInput" placeholder="Herbe" value="<?= $_POST['title'] ?>" required> <!-- Keep post value in the input -->
                                 </div>
 
                                 <div class="numberId <?= array_key_exists('mcId', $error_messages) ? 'error' : '' ?>">
@@ -203,7 +197,7 @@ $json_items = json_encode($items);
                                     <label for="textDescriptionInput">— Description —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('description', $error_messages) ? $error_messages['description'] : '' ?></p></div>
                                     <img src="img/error.svg" alt="error" width="20" />
-                                    <textarea name="description" id="textDescriptionInput" placeholder="Composé de terre et d'herbe"><?= $_POST['description'] ?></textarea>
+                                    <input type="text" name="description" id="textDescriptionInput" placeholder="Composé de terre et d'herbe"><?= $_POST['description'] ?></input>
                                 </div>
 
                                 <div>
@@ -222,10 +216,9 @@ $json_items = json_encode($items);
                 <p>Made with <span id="hearth">&hearts;</span> by Simon.L</p>
             </footer>
         </div>
-        <script>
-            var json_items = <?= $json_items; ?>;
 
-            console.log(json_items);
+        <script>
+            var json_items = <?= $json_items; ?>; // Get items table in JS
         </script>
         <script src="js/script.js"></script>
     </body>

@@ -1,22 +1,8 @@
 <?php
 
-/*echo '<pre>';
-print_r($_POST);
-print_r($_FILES);
-echo '</pre>';*/
-
 // Set variables
 $error_messages = array();
 $error_login = array();
-
-// Reset the post values
-function resetPost() {
-    $_POST['title'] = '';
-    $_POST['mcId'] = '';
-    $_POST['category'] = '';
-    $_POST['description'] = '';
-    $_POST['pseudo'] = '';
-}
 
 // Instructions when post request
 if(!empty($_POST)) {
@@ -130,7 +116,6 @@ if(!empty($_POST)) {
             // Execute the SQL request
             $prepare->execute();
 
-            resetPost();
         }
     }
 
@@ -138,14 +123,12 @@ if(!empty($_POST)) {
     else if($_POST['type'] == 'delete') {
         if (isset($_SESSION['admin'])) {
             $exec = $pdo->exec('DELETE FROM `items` WHERE `items`.`id` =' . $_POST['id']);
-            resetPost();
         }
     }
 
     else if($_POST['type'] == 'unlogin') {
         $_SESSION = array();
         session_destroy();
-        resetPost();
     }
 
     // If the user use the 'login' post form
@@ -160,31 +143,25 @@ if(!empty($_POST)) {
         if($query->rowCount() == 0)
         {
             $error_login['login'] = 'Combinaison incorrecte';
-            resetPost();
         }
-        else { // ToDo : Modify html content
+        else {
             $_SESSION['admin'] = 1;
             $_SESSION['pseudo'] = $pseudo;
         }
 
         if(empty($error_login)) {
-            resetPost();
         }
     }
     
+    // If the user use the 'order' post form
     else if($_POST['type'] == 'order') {
-        $_SESSION['order'] = $_POST['order'];
-        
-        resetPost();
+        $_SESSION['order'] = $_POST['order']; // Keep the choice in the session
     }
 }
 
-// If the user don't charge any post form
-else {
-    resetPost();
-}
-
-
-/*echo '<pre>';
-print_r($admin);
-echo '</pre>';*/
+// Define an empty value when she don't exist
+$_POST['title']       = (isset($_POST['title']))       ? $_POST['title']       : '';
+$_POST['mcId']        = (isset($_POST['mcId']))        ? $_POST['mcId']        : '';
+$_POST['category']    = (isset($_POST['category']))    ? $_POST['category']    : '';
+$_POST['description'] = (isset($_POST['description'])) ? $_POST['description'] : '';
+$_POST['pseudo']      = (isset($_POST['pseudo']))      ? $_POST['pseudo']      : '';

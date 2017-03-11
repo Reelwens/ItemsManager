@@ -1,4 +1,13 @@
 /*
+This gulpfile :
+- Minimify images
+- Concat CSS files
+- Add autoprefixers
+- Minimify CSS files
+- Concat JS files
+*/
+
+/*
  * Configurations
  */
 
@@ -53,7 +62,8 @@ gulp.task('img', () => {
 // CSS task
 gulp.task( 'css', function()
 {
-    return gulp.src( './src/css/*.css' )     // Get main CSS file
+    return gulp.src( './src/css/*.css' )        // Get CSS files
+        .pipe( gulp_concat( 'style.min.css' ) ) // Concat in one file
         .pipe(sourcemaps.init())
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
@@ -61,8 +71,7 @@ gulp.task( 'css', function()
         }))
         .pipe(sourcemaps.write())
         .pipe( gulp_css_nano() )                // Minify it
-        .pipe( gulp_rename('style.min.css')) // Rename it
-        .pipe( gulp.dest( './dist/css/' ) );     // Put it in folder
+        .pipe( gulp.dest( './dist/css/' ) );    // Put it in folder
 } );
 
 
@@ -70,9 +79,9 @@ gulp.task( 'css', function()
 gulp.task( 'js', function()
 {
     return gulp.src( ['./src/js/*.js'] )        // Get JS files
-        .pipe( gulp_concat( 'script.js' ) ) // Concat in one file
-        //.pipe( gulp_uglify() )                  // Minify them (problem with ES6)
-        .pipe( gulp.dest( './dist/js/' ) );      // Put it in folder
+        .pipe( gulp_concat( 'script.js' ) )     // Concat in one file
+        //.pipe( gulp_uglify() )                // Minify them (problem with ES6)
+        .pipe( gulp.dest( './dist/js/' ) );     // Put it in folder
 } );
 
 

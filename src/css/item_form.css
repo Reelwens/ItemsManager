@@ -1,0 +1,122 @@
+section#addBlockForm div.formCase {
+    padding: 0; 
+}
+
+#addBlockForm .title {
+    color: #ffffff;
+    text-shadow: 2px 2px 0px hsl(0, 0%, 22%);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+#addBlockForm label {
+    color: #d0d0d0;
+    text-shadow: 2px 2px 0px hsl(0, 0%, 22%);
+    font-size: 15px;
+    font-weight: 400;
+    width: 100%;
+    margin-bottom: 2px;
+}
+
+#addBlockForm input {
+    margin-bottom: 25px;
+    border: 3px solid #bcbcbc;
+    height: 38px;
+    width: 215px;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#addBlockForm #uploadPicture {
+    display: inline-block;
+    font-weight: 700;
+    color: #5d5d5d;
+    border: none;
+    margin-bottom: 15px;
+    width: 350px;
+}
+
+.addForm div span {
+    font-size: 12px;
+    position: absolute;
+    margin-top: -3px;
+    margin-left: -45px;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.88);
+    padding: 3px 6px;
+    border-radius: 3px;
+    box-shadow: 0 0 2px rgba(0,0,0,.5);
+    transform: scale(0) rotate(-12deg);
+    transition: all .25s;
+    opacity: 0;
+    z-index: 5;
+}
+
+.addForm div:hover span {
+    transform:scale(1) rotate(0);
+    opacity: 1;
+}
+
+.addForm div {
+    position: relative;
+}
+
+#addBlockForm div img {
+    display: none;
+}
+
+#addBlockForm .valid {
+    height: 30px;
+    border-top: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #a0a0a0;
+    border-bottom: 3px solid #a0a0a0;
+    background-color: #bebebe;
+    outline: none;
+    margin-bottom: 40px;
+    transition: all 0.2s ease-in-out;
+}
+
+#addBlockForm .valid:hover {
+    border-top: 1px solid #d6dcff;
+    border-left: 1px solid #d6dcff;
+    border-right: 1px solid #959cbf;
+    border-bottom: 3px solid #959cbf;
+    background-color: #bdc2db;
+}
+
+#addBlockForm .valid:active {
+    height: 30px;
+    border-top: 1px solid #8c93c1;
+    border-left: 1px solid #8c93c1;
+    border-right: 1px solid #9ba3cc;
+    border-bottom: 3px solid #9ba3cc;
+    background-color: #bdc2db;
+}
+
+
+/* error messages style */
+#addBlockForm .error img {
+    display: inline-block;
+    top: 50%;
+    transform: translateX(-130%) translateY(-50%);
+    position: absolute;
+    will-change: transform;
+}
+
+#addBlockForm .error div {
+    display: inline-block;
+    top: 50%;
+    transform: translateX(-100%) translateY(-50%);
+    text-align: right;
+    position: absolute;
+    color: #b91010;
+    will-change: transform;
+}
+
+#addBlockForm .error div p {
+    margin-right: 30px;
+    margin-bottom: 0px;
+}

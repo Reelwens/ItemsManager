@@ -1,0 +1,14 @@
+footer {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+footer p {
+    color: #d0d0d0;
+    text-shadow: 2px 2px 0px hsl(0, 0%, 22%)
+}
+
+#hearth {
+    color: #ff7b7b;
+    font-size: 20px;
+}

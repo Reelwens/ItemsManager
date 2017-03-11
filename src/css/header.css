@@ -1,0 +1,66 @@
+header {
+    background-color: #292929;
+    padding: 10px 0;
+    border-bottom: 1px solid #3c3c3c;
+    transform: translateY(-49px);
+    transition: transform, 0.3s ease-in-out;
+    visibility: hidden;
+    will-change: transform;
+}
+
+.header.toggle {
+    transform: translateY(0px);
+    visibility: visible;
+}
+
+header label {
+    color: #FFFFFF;
+}
+
+header input {
+    margin-left: 5px;
+}
+
+header form {
+    display: inline-block;
+}
+
+.toggleButton {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    cursor: pointer;
+    transition: transform, 0.3s ease-in-out;
+    background-color: #292929;
+    padding: 8px;
+    border-radius: 2px;
+    will-change: transform;
+}
+
+div#errorTestLogin {
+    display: inline-block;
+    top: 50%;
+    transform: translateX(-100%) translateY(-50%);
+    text-align: right;
+    position: absolute;
+    color: #b91010;
+    will-change: transform;
+}
+
+#errorTestLogin p {
+    margin-right: 10px;
+    margin-bottom: 0px;
+}
+
+.container {
+    transition: transform, 0.3s ease-in-out;
+    will-change: transform;
+}
+
+.toggleButton.toggle {
+    transform: rotate(90deg);
+}
+
+.sortText {
+    color: white;
+}

@@ -1,4 +1,3 @@
-// SEARCH DISPLAYER
 var input = document.querySelector('#search'); // Element Eventlistened
 var allBox = document.querySelectorAll('.blocCase');
 
@@ -28,22 +27,3 @@ function hideAll() { // Applicate hidden class to all box
 
 input.addEventListener('change', printResult); // When mouse is over the input
 input.addEventListener('keyup', printResult); // When a new key is writen
-
-
-
-
-// HEADER VISIBILITY
-var header = document.querySelector('header'),
-    toggleButton = document.querySelector('.toggleButton');
-
-
-toggleButton.addEventListener('click', function () {
-    if (header.classList.contains('toggle')) {
-        header.classList.remove('toggle');
-        toggleButton.classList.remove('toggle');
-    }
-    else {
-        header.classList.add('toggle');
-        toggleButton.classList.add('toggle');
-    }
-});

@@ -1,0 +1,10 @@
+body {
+    background-image: url(../img/options_background.png);
+    background-repeat: repeat;
+    font-family: 'Quantico', sans-serif;
+    position: relative;
+}
+
+.hidden {
+    visibility: hidden;
+}
