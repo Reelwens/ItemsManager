@@ -116,6 +116,12 @@ if(!empty($_POST)) {
             // Execute the SQL request
             $prepare->execute();
 
+            // Clean input value
+            $_POST['title']       = '';
+            $_POST['mcId']        = '';
+            $_POST['category']    = '';
+            $_POST['description'] = '';
+            $_POST['pseudo']      = '';
         }
     }
 

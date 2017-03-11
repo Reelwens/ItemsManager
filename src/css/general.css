@@ -3,6 +3,7 @@ body {
     background-repeat: repeat;
     font-family: 'Quantico', sans-serif;
     position: relative;
+    overflow-x: hidden;
 }
 
 .hidden {

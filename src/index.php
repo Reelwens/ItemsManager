@@ -112,8 +112,8 @@ $json_items = json_encode($items);
                         <div class="itemBox text-center ">
                             <?php
 
-    if(isset($_SESSION['admin'])) // If it is an admin, show the delete button
-    {
+                            if(isset($_SESSION['admin'])) // If it is an admin, show the delete button
+                            {
 
                             ?>
                             <form action="#" method="post">
@@ -126,7 +126,7 @@ $json_items = json_encode($items);
                             </form>
                             <?php
 
-    } // End of the condition
+                            } // End of the condition
 
                             ?>
                             <div class="titleGroup">
@@ -156,21 +156,21 @@ $json_items = json_encode($items);
                                     <label for="nameItemInput">— Nom de l'item —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('title', $error_messages) ? $error_messages['title'] : '' ?></p></div> <!-- Display error message -->
                                     <img src="img/error.svg" alt="error" width="20" />
-                                    <input type="text" name="title" id="nameItemInput" placeholder="Herbe" value="<?= $_POST['title'] ?>" required> <!-- Keep post value in the input -->
+                                    <input type="text" autocomplete="off" name="title" id="nameItemInput" placeholder="Herbe" value="<?= $_POST['title'] ?>" required> <!-- Keep post value in the input -->
                                 </div>
 
                                 <div class="numberId <?= array_key_exists('mcId', $error_messages) ? 'error' : '' ?>">
                                     <label for="numberIdInput">— ID —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('mcId', $error_messages) ? $error_messages['mcId'] : '' ?></p></div>
                                     <img src="img/error.svg" alt="error" width="20" />
-                                    <input type="number" name="mcId" id="numberIdInput" placeholder="2" value="<?= $_POST['mcId'] ?>" required>
+                                    <input type="number" autocomplete="off" name="mcId" id="numberIdInput" placeholder="2" value="<?= $_POST['mcId'] ?>" required>
                                 </div>
 
                                 <div class="picture <?= array_key_exists('textureImg', $error_messages) ? 'error' : '' ?>">
                                     <label for="uploadPicture">— Aperçu de l'item —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('textureImg', $error_messages) ? $error_messages['textureImg'] : '' ?></p></div>
                                     <img src="img/error.svg" alt="error" width="20" />
-                                    <input type="file" name="textureImg" id="uploadPicture" required>
+                                    <input type="file" autocomplete="off" name="textureImg" id="uploadPicture" required>
                                     <span>Carré &lt; 15Ko</span>
                                 </div>
 
@@ -197,7 +197,7 @@ $json_items = json_encode($items);
                                     <label for="textDescriptionInput">— Description —</label>
                                     <div class="hidden-xs"><p><?= array_key_exists('description', $error_messages) ? $error_messages['description'] : '' ?></p></div>
                                     <img src="img/error.svg" alt="error" width="20" />
-                                    <input type="text" name="description" id="textDescriptionInput" placeholder="Composé de terre et d'herbe"><?= $_POST['description'] ?></input>
+                                    <input type="text" autocomplete="off" name="description" id="textDescriptionInput" placeholder="Composé de terre et d'herbe" value="<?= $_POST['description'] ?>"></input>
                                 </div>
 
                                 <div>
