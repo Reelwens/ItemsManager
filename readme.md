@@ -10,7 +10,7 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, Bootstr
 - Importer les tables SQL `install\gestionnaire.sql` via phpmyadmin dans une base de donnée d'interclassement utf8_general_ci
 - Modifier le nom de la base de donnée, le nom d'utilisateur et le mot de passe d'accès dans le fichier `src\includes\config.php`
 - Executer la commande `npm install` puis `gulp` dans le terminal à la racine
-- Importer et lancer `dist\` à sa racine sur un serveur
+- Lancer `dist\` à sa racine sur un serveur
 
 ## Remarques
 * Des images sont mises à disposition dans `install\item_for_try\` afin de tester rapidement les contrôles réalisés
