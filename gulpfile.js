@@ -59,6 +59,15 @@ gulp.task('img', () => {
 })
 
 
+// Sounds
+gulp.task('sounds', () => {
+    return gulp.src( [
+        './src/sounds/**'
+        ] )
+        .pipe(gulp.dest('./dist/sounds/'));
+})
+
+
 // CSS task
 gulp.task( 'css', function()
 {
@@ -93,8 +102,9 @@ gulp.task( 'watch', function()
     gulp.watch( './src/js/**', [ 'js' ] );
     gulp.watch( './src/**/*.php', [ 'php' ] );
     gulp.watch( './src/img/**', [ 'img' ] );
+    gulp.watch( './src/sounds/**', [ 'sounds' ] );
 } );
 
 
 
-gulp.task( 'default', [ 'php', 'css', 'js', 'img', 'watch' ] );
+gulp.task( 'default', [ 'php', 'css', 'js', 'img', 'sounds', 'watch' ] );
