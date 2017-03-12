@@ -2,6 +2,7 @@ body {
     font-family: 'Quantico', sans-serif;
     position: relative;
     overflow-x: hidden;
+    background-color: #a0a0a0;
 }
 
 body:before {
@@ -29,7 +30,14 @@ body:before {
     100% {transform: translateX(-40%) translateY(-45%);}
 }
 
-
 .hidden {
     visibility: hidden;
+}
+
+.musicButton {
+    position: absolute;
+    right: 10px;
+    top: 50px;
+    cursor: pointer;
+    z-index: 10;
 }

@@ -83,6 +83,10 @@ $json_items = json_encode($items);
 
         ?>
 
+       <div class="musicButton">
+           <img src="img/record_cat_off.png" alt="music" width="64" />
+       </div>
+
         <div class="container main">
 
             <section id="titleSearch" class="row"> <!-- TITLE SEARCH -->
@@ -227,6 +231,10 @@ $json_items = json_encode($items);
                 <p>Made with <span id="hearth">&hearts;</span> by Simon.L</p>
             </footer>
         </div>
+
+        <audio id="sound" autoplay loop>
+            <source src="sounds/cat.mp3" type="audio/mp3" />
+        </audio>
 
         <script>
             var json_items = <?= $json_items; ?>; // Get items table in JS
