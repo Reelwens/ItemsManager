@@ -23,7 +23,6 @@ Les identifiants de connexion administrateur du site sont les suivants :
 ## Fonctionnalités
 
 ##### Fonctionnalités de base :
-* PHP : Connexion sécurisée à la base de donnée
 * PHP : Lister les items contenus dans la base de donnée
 * PHP : Formulaire permettant d'ajouter des items
 * PHP : Données associées à chaque item : Nom, ID Minecraft, Image, Catégorie, Description
@@ -40,16 +39,13 @@ Les identifiants de connexion administrateur du site sont les suivants :
 * PHP : Vérification de toutes les erreurs de l'utilisateur entrées dans le formulaire :
     * ID Minecraft déjà renseigné dans la base de donnée
     * Donnée manquante dans un input
-    * Nombre de caractères maximum
-    * Nombre de caractères minimum
-    * La donnée n'est pas un nombre
-    * Le nombre est négatif
+    * Nombre de caractères minimum / maximum
+    * La donnée n'est pas un nombre / est négative
 * PHP : Affichage précis des erreurs à l'utilisateur
-* PHP : Ré-affichage des données du formulaire en cas d'erreur
-* PHP : Affichage des items dans l'ordre numérique des ID Minecraft
+* PHP : Conservation des données du formulaire en cas d'erreur
 * PHP : Formatage en français de la date renvoyée par la base de donnée
 * PHP : Conversion de la base de donnée en Json pour une utilisation JS
-* PHP : Différents types de triage proposés
+* PHP : Triage des items selon le choix de l'utilisateur
 * JS : Recherche dynamique des items selon leur nom, id & catégorie
 * CSS : Site entierement responsive, peu importe le nombre d'items
 * CSS : Style CSS reprenant les codes graphiques du jeu Minecraft
