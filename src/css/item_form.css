@@ -88,7 +88,6 @@ section#addBlockForm div.formCase {
 }
 
 #addBlockForm .valid:active {
-    height: 30px;
     border-top: 1px solid #8c93c1;
     border-left: 1px solid #8c93c1;
     border-right: 1px solid #9ba3cc;

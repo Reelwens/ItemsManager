@@ -10,7 +10,7 @@
 
 #titleSearch h2 {
     color: #d0d0d0;
-    text-shadow: 2px 2px 0px hsl(0, 0%, 22%);
+    text-shadow: 1px 1px 0px hsl(0, 0%, 22%);
     font-size: 15px;
     font-weight: 400;
     margin-top: 0;
@@ -25,7 +25,7 @@
     height: 45px;
     padding-left: 10px;
     padding-right: 10px;
-    border: 3px solid #909090;
+    border: 3px solid #bcbcbc;
     outline: none;
     width: 70%;
 }
@@ -37,7 +37,7 @@
 #titleSearch form .order {
     height: 30px;
     width: 120px;
-    border: 2px solid #909090;
+    border: 3px solid #bcbcbc;
     outline: none;
 }
 
@@ -61,11 +61,10 @@
 }
 
 #titleSearch form .valid:active {
-    height: 30px;
-    border-top: 1px solid #6c749b;
-    border-left: 1px solid #6c749b;
-    border-right: 1px solid #a0a6c7;
-    border-bottom: 3px solid #a0a6c7;
+    border-top: 1px solid #8c93c1;
+    border-left: 1px solid #8c93c1;
+    border-right: 1px solid #9ba3cc;
+    border-bottom: 3px solid #9ba3cc;
     background-color: #bdc2db;
 }
 
@@ -79,7 +78,7 @@
     top: 50%;
     right: -3%;
     color: #ffff00;
-    text-shadow: 4px 4px 0px #3f3f00;
+    text-shadow: 3px 3px 0px #3f3f00;
     font-size: 4vmin;
     z-index: 1;
     animation-name: splash;
