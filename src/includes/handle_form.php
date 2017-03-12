@@ -128,7 +128,10 @@ if(!empty($_POST)) {
     // If the user use the 'delete' post form
     else if($_POST['type'] == 'delete') {
         if (isset($_SESSION['admin'])) {
-            $exec = $pdo->exec('DELETE FROM `items` WHERE `items`.`id` =' . $_POST['id']);
+            $exec = $pdo->prepare('DELETE FROM `items` WHERE `items`.`id` = :id');
+            
+            $exec->bindValue(':id', $_POST['id']);
+            $exec->execute();
         }
     }
 
@@ -145,9 +148,13 @@ if(!empty($_POST)) {
         $pass = sha1($_POST['pass']);
 
         // Verifiy if user/pass is in BDD
-        $query = $pdo->query("SELECT * FROM members WHERE pseudo = '".$pseudo."' AND pass = '".$pass."'");
-        if($query->rowCount() == 0)
-        {
+        $query = $pdo->prepare("SELECT * FROM members WHERE pseudo = :pseudo AND pass = :pass");
+        
+        $query->bindValue(':pseudo', $pseudo);
+        $query->bindValue(':pass', $pass);
+        $query->execute();
+        
+        if($query->rowCount() == 0) {
             $error_login['login'] = 'Combinaison incorrecte';
         }
         else {
