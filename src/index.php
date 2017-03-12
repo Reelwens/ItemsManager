@@ -50,7 +50,10 @@ $json_items = json_encode($items);
                 </div>
             </div>
         </header>
-        <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30" /></div>
+        <div class="toggleButton">
+            <span>Administration</span>
+            <img src="img/hamburger.svg" alt="menu" width="30" />
+        </div>
         <?php
 
         } // End of the condition
@@ -70,7 +73,10 @@ $json_items = json_encode($items);
                 </div>
             </div>
         </header>
-        <div class="toggleButton"><img src="img/hamburger.svg" alt="menu" width="30" /></div>
+        <div class="toggleButton">
+            <span>Administration</span>
+            <img src="img/hamburger.svg" alt="menu" width="30" />
+        </div>
         <?php
 
         } // End of the condition
@@ -81,26 +87,31 @@ $json_items = json_encode($items);
 
             <section id="titleSearch" class="row"> <!-- TITLE SEARCH -->
                 <div class="col-md-12 text-center">
-                    <img src="img/minecraft_logo.png" alt="Logo Minecraft" width="700" />
+                    <div class="logo">
+                        <img src="img/minecraft_logo.png" alt="Logo Minecraft" width="700" />
+                        <p class="splash">C'est magique !</p>
+                    </div>
 
                     <h1>Gestionnaire d'items Minecraft</h1>
                     <h2>Cataloguez vos items favoris, et proposez vos propres items à la communauté !</h2>
 
-                    <div class="row"><input type="search" placeholder="Rechercher un bloc (nom / id / type)" id="search" class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2 col-xs-10 col-xs-offset-1"></div>
-                    <form action="#" method="post">
-                        <input type="hidden" name="type" value="order">
+                    <div class="titleBorder col-md-8 col-sm-10 col-md-offset-2 col-sm-offset-1"><div class="titleBox">
+                        <div class="row"><input type="search" placeholder="Rechercher un bloc (nom / id / type)" id="search" class=""></div>
+                        <form action="#" method="post">
+                            <input type="hidden" name="type" value="order">
 
-                        <span class="sortText">Trier par:</span>
+                            <span class="sortText">Trier par:</span>
 
-                        <!-- Keep the selected order in the session variable -->
-                        <select name="order" class="order">
-                            <option value="mcId"     <?php if($_SESSION['order'] == 'mcId' )    echo 'selected="selected"' ?>>ID Minecraft</option>
-                            <option value="title"    <?php if($_SESSION['order'] == 'title')    echo 'selected="selected"' ?>>Nom d'item</option>
-                            <option value="category" <?php if($_SESSION['order'] == 'category') echo 'selected="selected"' ?>>Catégorie</option>
-                            <option value="date"     <?php if($_SESSION['order'] == 'date')     echo 'selected="selected"' ?>>Date d'ajout</option>
-                        </select>
-                        <input type="submit" name="valid" value="Valider" class="valid">
-                    </form>
+                            <!-- Keep the selected order in the session variable -->
+                            <select name="order" class="order">
+                                <option value="mcId"     <?php if($_SESSION['order'] == 'mcId' )    echo 'selected="selected"' ?>>ID Minecraft</option>
+                                <option value="title"    <?php if($_SESSION['order'] == 'title')    echo 'selected="selected"' ?>>Nom d'item</option>
+                                <option value="category" <?php if($_SESSION['order'] == 'category') echo 'selected="selected"' ?>>Catégorie</option>
+                                <option value="date"     <?php if($_SESSION['order'] == 'date')     echo 'selected="selected"' ?>>Date d'ajout</option>
+                            </select>
+                            <input type="submit" name="valid" value="Valider" class="valid">
+                        </form>
+                    </div></div>
                 </div>
             </section>
 

@@ -14,7 +14,7 @@
     font-size: 15px;
     font-weight: 400;
     margin-top: 0;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
 
 #titleSearch img {
@@ -27,11 +27,11 @@
     padding-right: 10px;
     border: 3px solid #909090;
     outline: none;
+    width: 70%;
 }
 
 #titleSearch form {
-    margin-top: 15px;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 #titleSearch form .order {
@@ -67,4 +67,44 @@
     border-right: 1px solid #a0a6c7;
     border-bottom: 3px solid #a0a6c7;
     background-color: #bdc2db;
+}
+
+#titleSearch div.logo {
+    position: relative;
+    display: inline-block;
+}
+
+#titleSearch div.logo p.splash {
+    position: absolute;
+    top: 50%;
+    right: -3%;
+    color: #ffff00;
+    text-shadow: 4px 4px 0px #3f3f00;
+    font-size: 4vmin;
+    z-index: 1;
+    animation-name: splash;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    will-change: transform;
+}
+
+@keyframes splash {
+    0% {transform: scale(1) rotate(-10deg);}
+    50% {transform: scale(0.95) rotate(-10deg);}
+    100% {transform: scale(1) rotate(-10deg);}
+}
+
+#titleSearch .titleBox {
+    padding: 30px 0;
+    border-top: 2px solid #b4b4b4;
+    border-left: 2px solid #b4b4b4;
+    border-right: 2px solid #606060;
+    border-bottom: 4px solid #606060;
+    background-color: #868686;
+}
+
+#titleSearch .titleBorder {
+    padding: 0;
+    border: 1px solid black;
 }
