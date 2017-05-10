@@ -9,18 +9,17 @@ Ce projet utilise PHP, les bases de données SQL, Javascript, HTML, CSS, Bootstr
 
 ## Installation
 
-- Importer les tables SQL `install\gestionnaire.sql` via phpmyadmin dans une base de donnée d'interclassement utf8_general_ci
+- Importer les tables SQL `gestionnaire.sql` via phpmyadmin dans une base de donnée d'interclassement utf8_general_ci
 - Modifier le nom de la base de donnée, le nom d'utilisateur et le mot de passe d'accès dans le fichier `src\includes\config.php`
 - Executer la commande `npm install` puis `gulp` dans le terminal à la racine
 - Lancer `dist\` à sa racine sur un serveur
 
 ## Remarques
-* Des images sont mises à disposition dans `install\item_for_try\` afin de tester rapidement les contrôles réalisés
 * Le site internet est directement consultable en ligne à [cette adresse](https://www.simonlucas.fr/web/item_manager/).
 
 Les identifiants de connexion administrateur du site sont les suivants :
-- Pseudonyme : `brunosimon`
-- Mot de passe : `hetic`
+- Pseudonyme : `admin`
+- Mot de passe : `admin`
 
 ## Fonctionnalités
 

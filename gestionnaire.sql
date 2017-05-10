@@ -78,7 +78,7 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id`, `pseudo`, `pass`, `grade`, `date_inscription`) VALUES
-(1, 'brunosimon', '06480155c2d35b262ad6fdcbdf173578353c78b4', 1, '2017-03-06 18:50:36');
+(1, 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 1, '2017-03-06 18:50:36');
 
 --
 -- Index pour les tables exportées
